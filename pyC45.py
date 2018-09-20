@@ -1,5 +1,6 @@
 # ==========================
 # imported from https://github.com/zhangchiyu10/pyC45
+# BUT had to be modified because wasn't labeling correctly
 # ==========================
 
 
@@ -181,13 +182,14 @@ def grow_tree(data, category, parent, attrs_names):
 
 
 def train(training_obs, training_cat, xmldir):
-    if not len(training_obs) == len(training_cat):
+    #print(str(len(training_obs)) + " " + str(len(training_cat)))
+    if not len(training_obs) - 1 == len(training_cat):
         return False
     attrs_names = training_obs[0]
     data = [[] for i in range(len(attrs_names))]
     categories = []
 
-    for i in range(1, len(training_obs)):
+    for i in range(1, len(training_obs)-1):
         categories.append(training_cat[i])
         for j in range(len(attrs_names)):
             data[j].append(training_obs[i][j])

@@ -25,7 +25,14 @@ def main():
     clf.fit(X, y, check_input=True)
 
     print(export_text(clf.tree_, feature_names))
-
+    testing = [["home", "in", "1-nbc"],
+               ["home", "out", "1-nbc"],
+               ["home", "out", "1-nbc"],
+               ["home", "in", "4-abc"],
+               ["home", "out", "1-nbc"],
+               ["home", "in", "4-abc"]]
+    print("\n\nTesting:")
+    print(clf.predict(testing))
 
 if __name__ == "__main__":
     main()
